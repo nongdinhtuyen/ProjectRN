@@ -3,7 +3,6 @@ import React from "react";
 import _ from 'lodash'
 
 export default class BaseRequest {
-  version = "v1/cryptotrading";
 
   prefix () {
     return '';
@@ -11,7 +10,7 @@ export default class BaseRequest {
 
   async get(url: string = '', params = {}) {
     try {
-      const response = await global.axios.get(`${this.version}/${url}`, { params });
+      const response = await global.axios.get(`${url}`, { params });
       return this._responseHandler(response);
     } catch (error) {
       this._errorHandler(error);
@@ -20,7 +19,7 @@ export default class BaseRequest {
 
   async put (url: string = '', data = {}) {
     try {
-      const response = await global.axios.put(`${this.version}/${url}`, data);
+      const response = await global.axios.put(`${url}`, data);
       return this._responseHandler(response);
     } catch (error) {
       this._errorHandler(error);
@@ -29,7 +28,7 @@ export default class BaseRequest {
 
   async post(url: string = '', data = {}) {
     try {
-      const response = await global.axios.post(`${this.version}/${url}`, data);
+      const response = await global.axios.post(`${url}`, data);
       return this._responseHandler(response);
     } catch (error) {
       this._errorHandler(error);
@@ -38,7 +37,7 @@ export default class BaseRequest {
 
   async del(url: string = '', params = {}) {
     try {
-      const response = await global.axios.delete(`${this.version}/${url}`, params);
+      const response = await global.axios.delete(`${url}`, params);
       return this._responseHandler(response);
     } catch (error) {
       this._errorHandler(error);

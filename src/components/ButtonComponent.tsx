@@ -1,6 +1,9 @@
 import React from 'react'
 import { TouchableHighlight, View, Text, StyleSheet, ViewStyle, TextStyle } from 'react-native'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
+import customStyles from '../styles'
+
+const shadow = customStyles.shadow
 
 const defaultProps = {
   bgColor: '',
@@ -69,14 +72,9 @@ const styles = StyleSheet.create({
   button: {
     width: moderateScale(280),
     backgroundColor: '#F5F7FD',
-    elevation: 3,
     padding: moderateScale(12),
     borderRadius: 20,
-    // width: "100%",
-    shadowColor: '#000',
-    shadowOffset: { width: 1, height: 1 },
-    shadowOpacity: 0.4,
-    shadowRadius: 3,
+    ...shadow
   },
   text: {
     textAlign: 'center',

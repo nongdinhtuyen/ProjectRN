@@ -1,7 +1,9 @@
 import React from 'react'
 import { Button, TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import ButtonComponent from '../components/ButtonComponent'
+import customStyles from '../styles'
 
+const shadow = customStyles.shadow
 interface Props {
 
 }
@@ -89,11 +91,7 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#fff',
-    shadowColor: '#000',
-    shadowOffset: { width: 1, height: 1 },
-    shadowOpacity: 0.4,
-    shadowRadius: 3,
-    elevation: 4,
+    ...shadow,
     padding: 10,
     paddingBottom: 25,
   },

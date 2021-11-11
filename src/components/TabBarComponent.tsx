@@ -2,13 +2,14 @@ import React, {useLayoutEffect} from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import TabBarAdvancedButton from './TabBarAdvancedButton';
-import { IS_IPHONE_X } from './utils';
-import LandingScreen from '../../screens/LandingScreen';
+import { IS_IPHONE_X } from './tabbar/utils';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
-
+import TabBarAdvancedButton from './tabbar/TabBarAdvancedButton';
+import LandingScreen from '../screens/LandingScreen';
+import ListOfCountriesContainer from '../container/ListOfCountriesContainer';
+import TestScreen from '../screens/TestScreen'
 
 const BottomBar = createBottomTabNavigator();
 
@@ -18,25 +19,27 @@ type Props = {
 
 
 
-const TabBar = (props: any, { barColor = '#fff' }: Props) => {
+const TabBarComponent = (props: any, { barColor = '#fff' }: Props) => {
   return (
     <BottomBar.Navigator
-      tabBar={(props) => (
-        <SafeAreaView>
-          <View style={styles.navigatorContainer}>
-            <BottomTabBar
-              {...props}
-            />
-            {IS_IPHONE_X && (
-              <View style={[styles.xFillLine, {
-                backgroundColor: barColor
-              }]} />
-            )}
-          </View>
-        </SafeAreaView>
-      )}
+      // tabBar={(props) => (
+      //   <SafeAreaView>
+      //     <View style={styles.navigatorContainer}>
+      //       <BottomTabBar
+      //         {...props}
+      //       />
+      //       {IS_IPHONE_X && (
+      //         <View style={[styles.xFillLine, {
+      //           backgroundColor: barColor
+      //         }]} />
+      //       )}
+      //     </View>
+      //   </SafeAreaView>
+      // )}
+      initialRouteName='Profile'
       screenOptions={{
         headerShown: false,
+        tabBarShowLabel: false,
         tabBarStyle: styles.navigator,
         tabBarItemStyle: {
           backgroundColor: barColor,
@@ -54,14 +57,17 @@ const TabBar = (props: any, { barColor = '#fff' }: Props) => {
       />
       <BottomBar.Screen
         name="Profile"
-        component={LandingScreen}
+        component={ListOfCountriesContainer}
         options={{
+          headerShown: true,
+          title: 'Thông tin COVID-19 VN 2021',
           tabBarIcon: ({ color }) => (
             <Ionicons name="ios-home-outline" size={23} color={color} />
-          )
+          ),
+          
         }}
       />
-      <BottomBar.Screen
+      {/* <BottomBar.Screen
         name="Rocket"
         component={LandingScreen}
         options={{
@@ -72,10 +78,10 @@ const TabBar = (props: any, { barColor = '#fff' }: Props) => {
             />
           )
         }}
-      />
+      /> */}
       <BottomBar.Screen
         name="Messages"
-        component={LandingScreen}
+        component={TestScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="ios-home-outline" size={23} color={color} />
@@ -127,4 +133,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default TabBar
+export default TabBarComponent;

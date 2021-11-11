@@ -4,7 +4,9 @@ import { Picker } from '@react-native-picker/picker';
 import DatePicker from 'react-native-date-picker';
 import ButtonComponent from '../components/ButtonComponent'
 import { moderateScale, moderateVerticalScale, verticalScale } from 'react-native-size-matters';
+import customStyles from '../styles'
 
+const shadow = customStyles.shadow
 interface Props {
 
 }
@@ -91,20 +93,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginBottom: moderateScale(20),
     backgroundColor: '#F5F7FD',
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 1, height: 1 },
-    shadowOpacity: 0.4,
-    shadowRadius: 3,
+   ...shadow,
   },
   date: {
     marginTop: moderateScale(10),
     backgroundColor: '#F5F7FD',
-    elevation: 3,
     borderRadius: 27,
-    shadowColor: '#000',
-    shadowOffset: { width: 1, height: 1 },
-    shadowOpacity: 0.4,
-    shadowRadius: 3,
+    ...shadow,
   },
 })

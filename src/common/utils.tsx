@@ -16,6 +16,8 @@ function getHeaderTitle(route: any) {
   }
 }
 
+
+
 export default {
-    getHeaderTitle
+  getHeaderTitle,
 }

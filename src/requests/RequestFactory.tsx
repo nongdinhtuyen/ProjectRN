@@ -1,5 +1,8 @@
+import ListOfCountriesRequest from "./ListOfCountriesRequest";
+
 
 const requestMap: any = {
+  ListOfCountriesRequest
 };
 
 const instances: any = {};

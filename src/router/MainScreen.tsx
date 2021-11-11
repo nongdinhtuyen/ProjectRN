@@ -10,7 +10,7 @@ import LandingScreen from '../screens/LandingScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import CreateCampaignScreen from '../screens/CreateCampaignScreen';
 import UserScreen from '../screens/UserScreen'
-import TabBar from '../components/tabbar/TabBar';
+import TabBarComponent from '../components/TabBarComponent';
 
 
 const Stack = createNativeStackNavigator();
@@ -20,8 +20,8 @@ export default function MainScreen(store: any) {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="TabBar"
-        component={TabBar}
+        name="TabBarComponent"
+        component={TabBarComponent}
         options={{
           headerShown: false,
         }}

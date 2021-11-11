@@ -5,6 +5,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { RouteProp } from '@react-navigation/native'
 import ButtonComponent from '../components/ButtonComponent'
 import { moderateScale, moderateVerticalScale, verticalScale } from 'react-native-size-matters';
+import customStyles from '../styles'
+
+const shadow = customStyles.shadow
 
 type CampaignScreenStackParamList = {
   LandingScreen: undefined,
@@ -106,13 +109,9 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#fff',
-    shadowColor: '#000',
-    shadowOffset: { width: 1, height: 1 },
-    shadowOpacity: 0.4,
-    shadowRadius: 3,
-    elevation: 4,
     padding: 10,
     paddingBottom: moderateScale(25),
+    ...shadow,
   },
   box: {
     flex: 1,

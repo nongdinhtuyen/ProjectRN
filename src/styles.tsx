@@ -1,9 +1,8 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+const customStyles = StyleSheet.create({
   shadow: {
     elevation: 3,
-    borderRadius: 27,
     shadowColor: '#000',
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.4,
@@ -11,4 +10,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default styles;
+export default customStyles;
